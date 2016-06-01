@@ -79,6 +79,18 @@ function dns() {
 function habilita_vh() {
     echo -e "Habilitando en Apache $ro1$hostname$n ... [ $vi1 OK $n ] \n"
     a2ensite $hostname.conf
+}
+
+function habilita_rewrite_engine() {
+    echo -e "\n$ro7 Se Habilitara Rewrite Engine de Apache       $n"
+    echo -e "$ro1 Confirma habilitacion de Rewrite Engine? [y/n]"; read op
+    if [ "$op" == "y" ] || [ "$op" == "Y" ]; then
+        echo -e "\n Iniciando habilitación Rewrite Engine... $n"
+        sudo a2enmod rewrite        
+        echo -e "\n$ro1 Habilitacion Rewrite Engine Finalizada... $n"
+    else
+        echo -e "$vi1 No habilitara Rewrite Engine $n"
+    fi    
 } 
 
 function reinicia() {
@@ -98,4 +110,5 @@ make_dir
 permisos
 dns
 habilita_vh
+habilita_rewrite_engine
 reinicia
