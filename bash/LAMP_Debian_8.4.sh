@@ -7,6 +7,16 @@ ro7="\033[7;49;31m"
 vi1="\033[1;49;35m"
 vi7="\033[7;49;35m"
 
+#Helper Delay
+delay() {
+    for ((i=$1; i>0; i--));
+    do
+        echo "  Iniciando en $i"
+        sleep 1  
+    done
+}
+
+
 
 ci1="\033[0;49;36m"
 
@@ -86,6 +96,35 @@ function conector_phpmysql {
         echo -e "$vi1 No se Instalara php5-mysql $n"
     fi    
 }
+
+function install_curl() {
+    echo -e "\n$ro7 Se Instalara $1 $n"
+    echo -e "$ro1 Continuar con la instalacion de $1? [y/n]"; read op
+    if [ "$op" == "y" ] || [ "$op" == "Y" ]; then
+        echo -e "\n Iniciando Instalacion de $1... $n"
+        delay 5
+        apt-get install curl
+        echo -e "\n$ro1 Instalacion de $1 Finalizada... $n"
+    else
+        echo -e "$vi1 No se Instalara $1 $n"
+    fi    
+}
+
+function install_nodeJS() {
+    echo -e "\n$ro7 Se Instalara $1 $n"
+    echo -e "$ro1 Continuar con la instalacion de $1? [y/n]"; read op
+    if [ "$op" == "y" ] || [ "$op" == "Y" ]; then
+        echo -e "\n La Instalacion de $1 requiere CURL... $n"
+        install_curl CURL        
+        echo -e "\n$ro1 Iniciando Instalacion de $1... $n"
+        delay 3    
+        curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+        sudo apt-get install -y nodejs
+        echo -e "\n$ro1 Instalacion de $1 Finalizada... $n"
+    else
+        echo -e "$vi1 No se Instalara $1 $n"
+    fi    
+}
 # Llamando a las funciones
 
 # Verifica que Usuario sea root
@@ -105,3 +144,5 @@ instala_mysql
 
 #Instala Conector php5-MySQL
 conector_phpmysql
+
+install_nodeJS NodeJS
