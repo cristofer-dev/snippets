@@ -1,0 +1,7 @@
+[user]
+	email = cristofer.dev@gmail.com
+	name = Cristofer
+[color]
+	ui = auto
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(bold blue)%an%Creset %C(white)%ci %C(yellow) %s'
