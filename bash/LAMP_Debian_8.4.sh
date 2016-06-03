@@ -125,6 +125,34 @@ function install_nodeJS() {
         echo -e "$vi1 No se Instalara $1 $n"
     fi    
 }
+
+function install_mongodb() {
+    echo -e "\n$ro7 Se Instalara $1 $n"
+    echo -e "$ro1 Continuar con la instalacion de $1? [y/n]"; read op
+    if [ "$op" == "y" ] || [ "$op" == "Y" ]; then
+        echo -e "\n Iniciando Instalacion de $1... $n"
+        delay 5
+        echo -e "\n$ro1     Importando llave publica... $n"
+        apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+        
+        echo -e "\n$ro1     Agregando al SourceList para $1... $n"
+        delay 3
+        echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.2 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+        
+        echo -e "\n$ro1     Recargando Repositorios $n"
+        delay 3
+        apt-get update
+
+        echo -e "\n$ro1     Instalando $1 $n"
+        delay 3
+        apt-get install -y mongodb-org
+
+        echo -e "\n$ro1 Instalacion de $1 Finalizada... $n"
+    else
+        echo -e "$vi1 No se Instalara $1 $n"
+    fi    
+}
+
 # Llamando a las funciones
 
 # Verifica que Usuario sea root
@@ -146,3 +174,5 @@ instala_mysql
 conector_phpmysql
 
 install_nodeJS NodeJS
+
+install_mongodb MongoDB_3.2
