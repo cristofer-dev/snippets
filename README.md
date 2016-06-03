@@ -1,11 +1,8 @@
 # snippets
 Snippets domesticos
 
-## Para Bash
-LAMP_Debian_8.4.sh
-Script que facilita la instalación sobre Debian 8.4 de:
-* Apache
-* MySQL
-* MongoDB
-* Php
-* NodeJS
+## bash
+Pequeños script que facilitan algunas tareas de configuración inicial de los SO tanto producción como Develop.
+
+## git
+Copia de los Archivos de configuración y otros que pueden ser de utilidad
