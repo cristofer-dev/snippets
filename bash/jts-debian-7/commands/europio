@@ -1,0 +1,64 @@
+#!/bin/bash
+#===============================================================================
+#    europio for JackTheStripper v 2.5
+#    Official Version for deploy a Debian GNU/Linux server, version 7 (or more)
+
+#    Developed by Eugenia Bahit <eugenia@linux.com>
+#    
+#    Copyright © 2013, 2014, 2015 Eugenia Bahit <eugenia@linux.com>
+#    License: GNU GPL version 3  <http://gnu.org/licenses/gpl.html>.
+#    This is free software: you are free to change and redistribute it.
+#    There is NO WARRANTY, to the extent permitted by law.
+#===============================================================================
+
+
+function get_branch() {
+    dir=$HOME/.config
+    if [ ! -d $dir ]; then
+        mkdir $dir
+    fi
+    if [ ! -d $dir/europio ]; then
+        mkdir $dir/europio
+        cd $dir/europio
+        echo "Creando un nuevo branch desde el cual actualizar sus aplicaciones"
+        bzr branch lp:europioexperimental
+        echo "Listo."
+        echo ""
+    fi
+}
+
+
+function start() {
+    pathapp=`pwd`
+    get_branch
+    actualizar $pathapp
+}
+
+
+function actualizar() {
+    dir=$HOME/.config/europio/europioexperimental
+    echo "Se actualizará a la última versión disponible de Europio Engine"
+    cd $dir
+    bzr pull lp:europioexperimental
+    echo "Listo."
+    echo ""
+    echo "Se actualizará el núcleo de su aplicación"
+    mv $dir/.bzr $dir/.bzr_original_repo
+    cp -R $dir/* $1
+    cp $dir/.htaccess $1
+    mv $dir/.bzr_original_repo $dir/.bzr
+    echo "Tareas finalizadas."
+}
+
+
+echo "
+    Europio Engine Installer & Updater v 2.0
+    (C) Copyright 2014, Eugenia Bahit <eugenia@linux.com>
+    Licencia GNU GPL v 3.0
+    
+    Uso: europio
+    
+    Ejecute <europio> en la carpeta donde lo desee instalar o actualizar
+"
+
+start
