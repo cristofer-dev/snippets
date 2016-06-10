@@ -275,14 +275,13 @@ function config_fail2ban() {
 
 # 18. Instalación de paquetes adicionales
 function install_aditional_packages() {
-    write_title "18. Instalación de paquetes adicionales"
-    echo "18.1. Instalar Bazaar..........."; apt-get install bzr -y
-    echo "18.2. Instalar tree............."; apt-get install tree -y
-    echo "18.3. Instalar Python-MySQLdb..."; apt-get install python-mysqldb -y
-    echo "18.4. Instalar WSGI............."; apt-get install libapache2-mod-wsgi -y
-    echo "18.5. Instalar PIP.............."; apt-get install python-pip -y
-    echo "18.6. Instalar Vim.............."; apt-get install vim -y
-    echo "18.7. Instalar PHPUnit..........";
+    write_title "18. Instalación de paquetes adicionales"    
+    echo "18.1. Instalar tree............."; apt-get install tree -y
+    echo "18.2. Instalar Python-MySQLdb..."; apt-get install python-mysqldb -y
+    echo "18.3. Instalar WSGI............."; apt-get install libapache2-mod-wsgi -y
+    echo "18.4. Instalar PIP.............."; apt-get install python-pip -y
+    echo "18.5. Instalar Vim.............."; apt-get install vim -y
+    echo "18.6. Instalar PHPUnit..........";
     
     wget https://phar.phpunit.de/phpunit.phar
     chmod +x phpunit.phar
