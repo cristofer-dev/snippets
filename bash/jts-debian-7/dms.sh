@@ -337,7 +337,7 @@ function add_commands() {
     write_title "23. Agregar comandos personalizados"
     add_command_blockip     # Agregar regla bloqueo a iptables
     add_command_vhostadd    # Agregar nuevo VirtualHost
-    add_command_europio     # Instalar o actualizar Europio Engine
+    #add_command_europio     # Instalar o actualizar Europio Engine
     say_done
 }
 
