@@ -44,8 +44,7 @@ function new_vhost() {
 
         <Directory /var/www/$hostname>
             Options -Indexes
-            AllowOverride All
-            Require local
+            AllowOverride All            
         </Directory>
 </VirtualHost>" > $ruta
         else
