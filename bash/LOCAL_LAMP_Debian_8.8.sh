@@ -114,8 +114,13 @@ function install_nodeJS() {
     echo -e "\n$ro7 Se Instalara $1 $n"
     echo -e "$ro1 Continuar con la instalacion de $1? [y/n]"; read op
     if [ "$op" == "y" ] || [ "$op" == "Y" ]; then
+        
         echo -e "\n La Instalacion de $1 requiere CURL... $n"
-        install_curl CURL        
+        install_curl CURL
+        
+        echo -e "\n La Instalacion de $1 requiere SUDO... $n"
+        install_Sudo
+        
         echo -e "\n$ro1 Iniciando Instalacion de $1... $n"
         delay 3    
         curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
@@ -150,6 +155,20 @@ function install_mongodb() {
         echo -e "\n$ro1 Instalacion de $1 Finalizada... $n"
     else
         echo -e "$vi1 No se Instalara $1 $n"
+    fi    
+}
+
+function install_Sudo() {
+    echo -e "\n$ro7 Se Instalara SUDO $n"
+    echo -e "$ro1 Necesario para Instalar NodeJS"
+    echo -e "$ro1 Continuar con la instalacion de SUDO? [y/n]"; read op
+    if [ "$op" == "y" ] || [ "$op" == "Y" ]; then
+        echo -e "\n Iniciando Instalacion de SUDO... $n"
+        delay 5
+        apt-get install sudo
+        echo -e "\n$ro1 Instalacion de SUDO Finalizada... $n"
+    else
+        echo -e "$vi1 No se Instalara SUDO $n"
     fi    
 }
 
