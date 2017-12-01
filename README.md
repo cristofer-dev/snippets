@@ -6,3 +6,6 @@ Pequeños script que facilitan algunas tareas de configuración inicial de los S
 
 ## git
 Copia de los Archivos de configuración y otros que pueden ser de utilidad
+
+## Sublime Text 3
+- Key Bindings
