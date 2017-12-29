@@ -3,6 +3,7 @@
 
 #### Brogrammer
 
+```
   White: #ffffff
   Off-White: #ecf0f1
   Dark Grey (background): #1a1a1a
@@ -16,3 +17,4 @@
   Yellow: #f1c40f
   Orange-Red: #e67e22
   Periwinkle: #6c71c4
+```
