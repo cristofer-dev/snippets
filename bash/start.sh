@@ -44,7 +44,7 @@ W5s=$(( $W2+$W4s ))
 wmctrl -s 0
 code &
 conky &
-sleep 2
+sleep 15
 
 wmctrl -s 1
 /home/alex/.programas/firefoxDev/firefox  http://cristofer.io&
@@ -90,7 +90,7 @@ else
   sleep 1
 
   wmctrl -s 3
-  /home/alex/.programas/firefoxDev/firefox -new-window inbox.google.com &
+  /home/alex/.programas/firefoxDev/firefox -new-tab -url inbox.google.com -new-tab -url play.spotify.com -new-tab -url bancofalabella.cl -new-tab -url github.com\/login &
   /home/alex/.programas/firefoxDev/firefox -new-tab -url 4frikis.slack.com -new-tab -url noders.slack.com -new-tab -url izit.slack.com &
 
   sleep 2
