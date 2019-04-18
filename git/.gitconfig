@@ -1,7 +1,10 @@
 [user]
 	email = tu_correo@dominio.com
 	name = "Juan Perez"
+	signingkey = BA76F7H6
 [color]
 	ui = auto
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(bold blue)%an%Creset %C(white)%ci %C(yellow) %s'
+[commit]
+	gpgsign = true
